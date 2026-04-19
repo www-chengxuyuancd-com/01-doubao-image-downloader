@@ -1,0 +1,44 @@
+{
+  "name": "doubao-image-downloader",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "包哥豆包AI生图去水印批量下载器",
+  "author": "包哥 <https://github.com/www-chengxuyuancd-com>",
+  "homepage": "https://github.com/www-chengxuyuancd-com/01-doubao-image-downloader",
+  "scripts": {
+    "dev": "vite --mode userscript",
+    "dev:ext": "vite --mode extension",
+    "build": "pnpm run build:userscript && pnpm run build:extension",
+    "build:userscript": "vite build --mode userscript",
+    "build:extension": "vite build --mode extension",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/chrome": "^0.1.40",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.3",
+    "vite": "^7.3.2",
+    "vite-plugin-monkey": "^7.1.9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

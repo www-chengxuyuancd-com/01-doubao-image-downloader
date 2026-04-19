@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+#doubao-downloader-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+#doubao-downloader-root > * {
+  pointer-events: auto;
+}
+
+.dd-indicator {
+  position: fixed;
+  right: -20px;
+  z-index: 99999;
+  width: 56px;
+  height: 36px;
+  border-radius: 36px 0 0 36px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8px;
+  font-size: 20px;
+  transition: right 0.2s ease-in-out;
+}
+
+.dd-indicator:hover {
+  right: 0;
+}
+
+.dd-mask {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 88888;
+}
+
+.dd-home {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 88889;
+  width: 80vw;
+  height: 70vh;
+  max-width: 900px;
+  max-height: 700px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dd-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dd-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dd-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dd-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.dd-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dd-btn-primary {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+.dd-btn-primary:hover:not(:disabled) {
+  background-color: #1e40af;
+}
+
+.dd-btn-orange {
+  background-color: #ea580c;
+  color: #fff;
+}
+
+.dd-btn-orange:hover:not(:disabled) {
+  background-color: #c2410c;
+}
+
+.dd-btn-ghost {
+  background-color: transparent;
+  color: #4b5563;
+}
+
+.dd-btn-ghost:hover:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+.dd-grid {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.dd-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: #f3f4f6;
+  transition: all 0.15s;
+}
+
+.dd-item:hover {
+  transform: scale(1.02);
+}
+
+.dd-item.selected {
+  border-color: #4096ff;
+  background-color: rgba(64, 150, 255, 0.1);
+}
+
+.dd-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dd-item-check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.dd-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  gap: 8px;
+}
+
+.dd-about {
+  flex: 1;
+  overflow: auto;
+  padding: 20px 24px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.dd-about h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1d4ed8;
+}
+
+.dd-about-desc {
+  color: #4b5563;
+  margin-bottom: 14px;
+}
+
+.dd-about-notice {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.dd-about-notice b {
+  color: #c2410c;
+}
+
+.dd-about-links {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.dd-about-links a {
+  flex: 1;
+  text-align: center;
+  background: #f3f4f6;
+  color: #1d4ed8;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.dd-about-links a:hover {
+  background: #e5e7eb;
+}
+
+.dd-about-qrwrap {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.dd-about-qrwrap img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.dd-about-tip {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.dd-about-meta {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 10px;
+}
